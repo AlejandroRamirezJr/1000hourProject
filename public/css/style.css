@@ -8,3 +8,7 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+.studentInput {
+    border: 1px black solid
+}

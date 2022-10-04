@@ -13,6 +13,10 @@ Array.from(positiveBtn).forEach((el)=>{
     el.addEventListener('click', addPositive)
 })
 
+Array.from(negativeBtn).forEach((el)=>{
+    el.addEventListener('click', addNegative)
+})
+
 Array.from(todoItem).forEach((el)=>{
     el.addEventListener('click', markComplete)
 })
@@ -20,11 +24,30 @@ Array.from(todoItem).forEach((el)=>{
 Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
+
+async function addNegative(){
+    const todoId = this.parentNode.dataset.id
+    try{
+        const response = await fetch('todos/addNegative', {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'todoIdFromJSFile': todoId
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    }catch(err){
+        console.log(err)
+    }
+}
+
 async function addPositive(){
     const todoId = this.parentNode.dataset.id
     try{
         const response = await fetch('todos/addPositive', {
-            method: 'update',
+            method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
                 'todoIdFromJSFile': todoId

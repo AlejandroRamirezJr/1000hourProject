@@ -13,7 +13,7 @@ router.put('/markIncomplete', todosController.markIncomplete)
 
 router.delete('/deleteTodo', todosController.deleteTodo)
 
-router.put('/pos', todosController.addPositive)
+router.put('/addPositive', todosController.addPositive)
 
-
+router.put('/addNegative', todosController.addNegative)
 module.exports = router
