@@ -55,10 +55,10 @@ module.exports = {
     addPositive:async (req, res)=>{
         try{
             await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-                $inc: {"positvePoints":1 }
+                $inc: {"positivePoints":1 }
             })
-            console.log('Marked Incomplete')
-            res.json('Marked Incomplete')
+            console.log('plus one')
+            res.json('Plus One')
         }catch(err){
             console.log(err)
         }
